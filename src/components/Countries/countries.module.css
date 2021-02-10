@@ -1,0 +1,22 @@
+form {
+  margin-top: 30px;
+  width: 400px;
+}
+
+.row {
+  padding-top: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+select {
+  width: 100%;
+  padding: 16px 20px;
+  border-bottom: 1.5px solid rgb(117, 116, 116);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  background-color: rgb(240, 231, 239);
+}

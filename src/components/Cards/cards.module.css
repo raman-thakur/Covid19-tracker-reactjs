@@ -1,0 +1,13 @@
+.card {
+  height: 210px;
+  width: 230px;
+  background-color: white;
+  border-radius: 3%;
+  /* border-color: turquoise; */
+  border-style: solid;
+  margin-right: 40px;
+  border-width: 0px 0px 10px 0px;
+  text-align: center;
+  font-size: 16px;
+  align-items: center;
+}
