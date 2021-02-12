@@ -34,7 +34,11 @@ useEffect(()=> {
 useEffect(()=> { 
   axios.get(URL+currentcountry)
     .then((props)=>{
-      setinfected(props.data.confirmed.value);
+      const x=props.data.confirmed.value;
+    //   const newx=(x)=>{
+    //     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    // }
+      setinfected(x);
     });
 },[currentcountry]);
 
@@ -43,8 +47,13 @@ useEffect(()=> {
 useEffect(()=> { 
   axios.get(URL+currentcountry)
     .then((props)=>{
-      setrecovered(props.data.recovered.value);
+      const x=props.data.recovered.value;
+    //   const newx=(x)=>{
+    //     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    // }
+      setrecovered(x);
     });
+    
 },[currentcountry]);
 
 
@@ -52,15 +61,28 @@ useEffect(()=> {
 useEffect(()=> { 
   axios.get(URL+currentcountry)
     .then((props)=>{
-      setdeaths(props.data.deaths.value);
+      const x=props.data.deaths.value;
+    //   const newx=(x)=>{
+    //     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    // }
+      setdeaths(x);
+
     });
+    
 },[currentcountry]);
 
 // last updation time and date
 useEffect(()=> { 
   axios.get(URL+currentcountry)
     .then((props)=>{
-      setlastupdate(props.data.lastUpdate);
+      let dateString = props.data.lastupdate;
+
+      const formatDate = (dateString) => {
+          const options = { year: "numeric", month: "long", day: "numeric" }
+          return new Date(dateString).toLocaleDateString(undefined, options)
+      }
+      // dateString=formatDate(dateString);
+      setlastupdate(formatDate);
       // console.log(props.data.lastUpdate);
     });
 },[currentcountry]);
@@ -83,9 +105,9 @@ if(countries.length>0)
           <h3>{currentcountry}'s Data</h3>
         </div>
         <div className={style.row}>
-          <Card type={"infected"} number={infected} date={lastupdate} color={"aqua"}/>
-          <Card type={"recovered"} number={recovered} date={lastupdate} color={"green"}/>
-          <Card type={"deaths"} number={deaths} date={lastupdate} color={"red"}/>
+          <Card type={"infected"} number={infected} date={lastupdate} color={"aqua"} country={currentcountry}/>
+          <Card type={"recovered"} number={recovered} date={lastupdate} color={"green"} country={currentcountry}/>
+          <Card type={"deaths"} number={deaths} date={lastupdate} color={"red"} country={currentcountry}/>
         </div>
         <Countries props={countries} countrychangehandler={countrychangehandler}/>
       </div>
