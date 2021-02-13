@@ -2,6 +2,7 @@ import style from './App.module.css';
 import axios from 'axios';
 import Card from './components/Cards/cards';
 import Countries from './components/Countries/countries';
+import Chart from "./components/Chart/chart";
 import {react, useState, useEffect} from 'react'
 function App() {
 
@@ -110,6 +111,7 @@ if(countries.length>0)
           <Card type={"deaths"} number={deaths} date={lastupdate} color={"red"} country={currentcountry}/>
         </div>
         <Countries props={countries} countrychangehandler={countrychangehandler}/>
+        <Chart infectedCount={infected} recoveredCount={recovered} deathCount={deaths}/>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ const card = (props) => {
     return (
         <div className={style.row}>
             <div className={style.card} style={{borderColor: props.color}}>
-                <p style={{fontSize:'25px',textDecorationLine: 'underline',textDecorationStyle: 'double'}}>{props.type}</p>
+                <p style={{fontSize:'25px',textDecorationLine: 'underline',textDecorationStyle: 'double' ,textTransform: 'capitalize'}}>{props.type}</p>
                 {/* <p>{props.number}</p> */}
                 <CountUp start={0} end={props.number} duration={2}/>
                 <p>{props.date}</p>
