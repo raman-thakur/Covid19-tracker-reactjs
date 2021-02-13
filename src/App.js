@@ -76,15 +76,14 @@ useEffect(()=> {
 useEffect(()=> { 
   axios.get(URL+currentcountry)
     .then((props)=>{
-      let dateString = props.data.lastupdate;
+      let dateString = props.data.lastUpdate;
 
       const formatDate = (dateString) => {
           const options = { year: "numeric", month: "long", day: "numeric" }
           return new Date(dateString).toLocaleDateString(undefined, options)
       }
-      // dateString=formatDate(dateString);
-      setlastupdate(formatDate);
-      // console.log(props.data.lastUpdate);
+      dateString=formatDate(dateString);
+      setlastupdate(dateString);
     });
 },[currentcountry]);
 
