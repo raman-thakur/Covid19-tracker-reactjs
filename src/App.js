@@ -36,9 +36,6 @@ useEffect(()=> {
   axios.get(URL+currentcountry)
     .then((props)=>{
       const x=props.data.confirmed.value;
-    //   const newx=(x)=>{
-    //     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    // }
       setinfected(x);
     });
 },[currentcountry]);
@@ -49,9 +46,6 @@ useEffect(()=> {
   axios.get(URL+currentcountry)
     .then((props)=>{
       const x=props.data.recovered.value;
-    //   const newx=(x)=>{
-    //     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    // }
       setrecovered(x);
     });
     
@@ -63,9 +57,6 @@ useEffect(()=> {
   axios.get(URL+currentcountry)
     .then((props)=>{
       const x=props.data.deaths.value;
-    //   const newx=(x)=>{
-    //     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    // }
       setdeaths(x);
 
     });
