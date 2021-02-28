@@ -1,6 +1,5 @@
 import style from './countries.module.css'
 
-
 const countries=(props)=>
 {
     const countries=Object.values(props)[0];
@@ -21,6 +20,5 @@ const countries=(props)=>
     </form>
     );
 }
-
 
 export default countries;
